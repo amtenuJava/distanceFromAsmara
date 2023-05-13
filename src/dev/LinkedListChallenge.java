@@ -46,7 +46,17 @@ public class LinkedListChallenge {
     public static void main(String[] args) {
         LinkedList<Place> citiesToVisit = new LinkedList<>();
         Place keren = new Place("Keren", 93);
+
         addCity(citiesToVisit, keren);
+
+        addCity(citiesToVisit,new Place("Mendefera",51));
+        addCity(citiesToVisit,new Place("Senafe",130));
+        addCity(citiesToVisit,new Place("Assab",1065));
+        addCity(citiesToVisit,new Place("Tesseney",359));
+        addCity(citiesToVisit,new Place("Dekemhare",40));
+        addCity(citiesToVisit,new Place("Duba Ruba",30));
+        addCity(citiesToVisit,new Place("Adi Tekelezan",40));
+
         System.out.println(citiesToVisit);
 
 
@@ -58,10 +68,19 @@ public class LinkedListChallenge {
             return;
         }
 
-        for(Place pl:list){
-            if(pl.name().equalsIgnoreCase(place.name())){
-                System.out.println("Duplicate-> "+ place);
+        for (Place pl : list) {
+            if (pl.name().equalsIgnoreCase(place.name())) {
+                System.out.println("Duplicate-> " + place);
             }
+        }
+
+        int index = 0; ///Matched Index for sorting
+        for (var listCities : list) {
+            if (place.distance() < listCities.distance()) {
+                list.add(index, place);
+                return;
+            }
+            index++;
         }
 
 
